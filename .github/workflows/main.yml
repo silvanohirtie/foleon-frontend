@@ -1,0 +1,35 @@
+name: dEPLOY MAIN
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  firebase-deploy:
+    runs-on: ubuntu-latest
+    env:
+      REACT_APP_IMAGES_API_BASE_URL: ${{ secrets.REACT_APP_IMAGES_API_BASE_URL }}
+      REACT_APP_PAGES_API_BASE_URL: ${{ secrets.REACT_APP_PAGES_API_BASE_URL }}
+
+    steps:
+      - uses: actions/checkout@master
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@master
+        with:
+          node-version: '14.x'
+      - name: create env file in /
+        run: |
+          touch .env
+          echo "REACT_APP_IMAGES_API_BASE_URL=${{ secrets.REACT_APP_IMAGES_API_BASE_URL }}" >> .env
+          echo "REACT_APP_PAGES_API_BASE_URL=${{ secrets.REACT_APP_PAGES_API_BASE_URL }}" >> .env
+      - name: install libraries
+        run: npm install
+      - name: install firebase
+        run: npm i firebase-tools firebase-admin firebase -g
+      - name: build
+        run: npm run build
+      - name: set project
+        run: firebase use --add "sennder-penalties-staging" --token=${{ secrets.FIREBASE_TOKEN }}
+      - name: deploy staging
+        run: firebase deploy --only hosting --token=${{ secrets.FIREBASE_TOKEN }}
