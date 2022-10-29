@@ -1,0 +1,22 @@
+
+input{
+    font-size:24px;
+}
+.root{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.infoWrapper{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+.infoWrapper > *{
+    padding:10px
+}

@@ -1,0 +1,41 @@
+.App {
+  text-align: center;
+}
+
+.contentWrapper{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.contentWrapper > *{
+  margin: 10px
+}
+.centerDiv{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.imageWrapper{
+  border-color: black;
+  border-width: 5px;
+  border-style: solid;
+  width:300px;
+  height:400px;
+  border-radius:15px;
+}
+.form{
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  width:300px;
+  height:200px;
+}
+img{
+  width:200px;
+  height:200px;
+}
+.quote{
+  font-style: italic;
+  color: grey
+}
