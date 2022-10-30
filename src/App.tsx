@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomeView from "./views/Home/HomeView";
 import PageView from "./views/Page/PageView";

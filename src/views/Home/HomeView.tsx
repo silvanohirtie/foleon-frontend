@@ -106,8 +106,6 @@ function HomeView() {
 
   const handleCreateImageModalClose = () => setCreateImageModalShow(false);
 
-  const uploadFile = (file: any) => {};
-
   return (
     <div className="centerDiv App">
       {loading && <div>Loading Data...</div>}

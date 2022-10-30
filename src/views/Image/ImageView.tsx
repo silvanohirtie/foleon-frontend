@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { ImagesApi } from "../../api/ImagesApi";
-import { Form, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { ImageInterface } from "../../interfaces/Image";
 
 import "./style.css";
@@ -48,7 +48,7 @@ export default function ImageView() {
       {error && <h1>Error getting the image...</h1>}
       {!error && image && (
         <div className="infoWrapper">
-          <img src={image.url}></img>
+          <img alt="" src={image.url}></img>
           <input
             value={newName}
             onChange={(e) => setNewName(e.target.value)}
