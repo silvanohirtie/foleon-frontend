@@ -1,4 +1,4 @@
-name: dEPLOY MAIN
+name: Deploy Main
 
 on:
   push:
@@ -30,6 +30,6 @@ jobs:
       - name: build
         run: npm run build
       - name: set project
-        run: firebase use --add "sennder-penalties-staging" --token=${{ secrets.FIREBASE_TOKEN }}
+        run: firebase use --add "foleon-88612" --token=${{ secrets.FIREBASE_TOKEN }}
       - name: deploy staging
         run: firebase deploy --only hosting --token=${{ secrets.FIREBASE_TOKEN }}
